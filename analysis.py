@@ -16,7 +16,7 @@ def load_snapshot(fname, sort=True, cgs_units=True):
         data = h5py.File(fname, "r")
     except:
         print("Could not open file: " + fname + " !")
-        exit(1)
+        sys.exit(1)
 
     time = FloatType(data["Header"].attrs["Time"])
     Pos = np.array(data["PartType1"]["Coordinates"], dtype = FloatType) 
