@@ -1,6 +1,6 @@
 ### Earth-Sun Example
 
-A simple example of a binary (like the Earth-Sun system). 
+A simple example of a binary (like the Earth-Sun system). This simulation runs in Newtonian space (i.e. no cosmological expansion) with vacuum boundary conditions (NOT periodic).
 
 **Instructions**:
 - Compile Gadget4 using the `Config.sh` file in this directory

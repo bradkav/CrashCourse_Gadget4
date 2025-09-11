@@ -2,7 +2,6 @@
 Files and details for a 'crash course' on [Gadget4](https://wwwmpa.mpa-garching.mpg.de/gadget4/).
 
 
-
 ### Contents:
 - [Installation](/installation/): Some quick hints for compiling Gadget4. Includes an environment file for creating a conda environment which _should_ have all the correct packages for compiling and running Gadget4
 - [Examples](/examples/): Some simple examples to get us started. In each example folder, you should find a Config.sh file to be used for compiling Gadget4, and code for generating the initial conditions, running Gadget4 and analysing the output. 
