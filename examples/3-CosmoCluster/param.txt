@@ -1,6 +1,6 @@
 
 %----  Relevant files 
-InitCondFile         ./IC_cluster
+InitCondFile         ./IC_cosmo
 OutputDir            ./output
 SnapshotFileBase     snapshot
 OutputListFilename   outputs.txt
@@ -18,33 +18,33 @@ CpuTimeBetRestartFile     7200    % 2h,  in seconds
 MaxMemSize                1800    % in MByte
 
 %---- Caracteristics of run
-TimeBegin                 0.0   
-TimeMax	                  1e-3   
+TimeBegin                 1e-2   % Begin of the simulation, z ~ 100
+TimeMax	                  3e-2   % End of the simulation,   z ~ 33
 
 %---- Basic code options that set the type of simulation
-ComovingIntegrationOn     0
+ComovingIntegrationOn     1
 
 %---- Cosmological parameters
-Omega0	                  0.0
-OmegaLambda               0.0
-OmegaBaryon               0.0
+Omega0	                  0.308
+OmegaLambda               0.692
+OmegaBaryon               0.0482
 HubbleParam               0.678
 Hubble                    100.0
 BoxSize                   0.0
 
-%---- Output frequency and output paramaters
+%---- Output frequency and output parameters
 OutputListOn              0
-TimeBetSnapshot           1e-5
-TimeOfFirstSnapshot       0.0
+TimeBetSnapshot           1.1
+TimeOfFirstSnapshot       1e-2
 TimeBetStatistics         0.01
 NumFilesPerSnapshot       1
 MaxFilesWithConcurrentIO  1 
 
 %---- Accuracy of time integration
-ErrTolIntAccuracy        0.01 
+ErrTolIntAccuracy        0.1 
 CourantFac               0.3
-MaxSizeTimestep          1e-5
-MinSizeTimestep          0.0 
+MaxSizeTimestep          1e-3
+MinSizeTimestep          0.0
 
 %---- Tree algorithm, force accuracy, domain update frequency
 TypeOfOpeningCriterion                1
@@ -67,8 +67,8 @@ GravityConstantInternal  0
 
 
 %---- Gravitational softening length
-SofteningComovingClass0      1e-13           
-SofteningMaxPhysClass0       1e-13
+SofteningComovingClass0      1e-5           ; 10 kpc/h
+SofteningMaxPhysClass0       1e-5
 
 SofteningClassOfPartType0    0
 SofteningClassOfPartType1    0

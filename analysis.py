@@ -21,6 +21,7 @@ def load_snapshot(fname, sort=True, cgs_units=True):
     time = FloatType(data["Header"].attrs["Time"])
     Pos = np.array(data["PartType1"]["Coordinates"], dtype = FloatType) 
     Vel = np.array(data["PartType1"]["Velocities"], dtype = FloatType)
+    Mass = np.array(data["PartType1"]["Masses"], dtype = FloatType)
     ParticleIDs = np.array(data["PartType1"]["ParticleIDs"])
     
     #If this flag is set, convert from code units to cgs units
@@ -28,6 +29,7 @@ def load_snapshot(fname, sort=True, cgs_units=True):
         time *= u.Tcode
         Pos  *= u.Lcode
         Vel  *= u.Vcode
+        Mass *= u.Mcode
     
     #The order of the particles in the snapshots is not conserved,
     #so let's sort the particles so that the i-th entry in the
@@ -36,7 +38,7 @@ def load_snapshot(fname, sort=True, cgs_units=True):
         sortargs = np.argsort(ParticleIDs)
     else:
         sortargs = np.arange(len(ParticleIDs))
-    return time, Pos[sortargs,:], Vel[sortargs,:], ParticleIDs
+    return time, Pos[sortargs,:], Vel[sortargs,:], Mass[sortargs], ParticleIDs
 
 #Load a list of snapshots (labelled by i_list) and concatenate
 #them into a big array of positions with dimensions (N_snapshots, N_particles, 3)
@@ -44,7 +46,7 @@ def load_snapshot(fname, sort=True, cgs_units=True):
 def load_all_snapshots(fname_root, i_list, cgs_units = True):
     for i, i_file in enumerate(i_list):
         filename = os.path.join(fname_root, 'snapshot_%03d.hdf5' % i_file)
-        t, Pos, _, _ = load_snapshot(filename, sort=True, cgs_units=cgs_units)
+        t, Pos, _, _, _ = load_snapshot(filename, sort=True, cgs_units=cgs_units)
         if i == 0:
             ts = []
             N_part = len(Pos)

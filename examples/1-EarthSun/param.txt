@@ -18,8 +18,8 @@ CpuTimeBetRestartFile     7200    % 2h,  in seconds
 MaxMemSize                1800    % in MByte
 
 %---- Caracteristics of run
-TimeBegin                 0.0   % Begin of the simulation, z = 63
-TimeMax	                  6.9e-13        % End of the simulation,   z = 0
+TimeBegin                 0.0   
+TimeMax	                  6.9e-13        
 
 %---- Basic code options that set the type of simulation
 ComovingIntegrationOn     0
@@ -42,9 +42,9 @@ MaxFilesWithConcurrentIO  1
 
 %---- Accuracy of time integration
 ErrTolIntAccuracy        0.01 
-CourantFac               0.3
 MaxSizeTimestep          1e-15
 MinSizeTimestep          0.0 
+CourantFac               0.3
 
 %---- Tree algorithm, force accuracy, domain update frequency
 TypeOfOpeningCriterion                1
@@ -52,7 +52,6 @@ ErrTolTheta                           0.75
 ErrTolThetaMax                        1.0
 ErrTolForceAcc                        0.002
 TopNodeFactor                         3.0
-
 ActivePartFracForNewDomainDecomp      0.01
 
 %---- Initial density estimate
@@ -67,7 +66,7 @@ GravityConstantInternal  0
 
 
 %---- Gravitational softening length
-SofteningComovingClass0      1e-15           ; 10 kpc/h
+SofteningComovingClass0      1e-15           
 SofteningMaxPhysClass0       1e-15
 
 SofteningClassOfPartType0    0
